@@ -9,29 +9,25 @@
             <video id="main-video" controls>
                 <source src="{{$videos[0]->path}}" type="video/mp4">
             </video>
-            <div class="title" id="main-title">Episode Title</div>
+            <div class="title" id="main-title">{{$videos[0]->title}}</div>
         </div>
+
+
         <div class="playlist">
             @foreach($videos as $video)
-                <div class="playlist-item" onclick="changeVideo('{{$video->path}}', '{{$video->title}}')">
-                    <div class="title" id="main-title">{{$videos[0]->title}}</div>
-                </div>
-                <div class="playlist">
-                    @foreach($videos as $video)
-                        <div class="playlist-item">
-                            <a onclick="changeVideo('{{$video->path}}','{{$video->title}}')" class="video-link">
+                <div class="playlist-item">
+                    <a onclick="changeVideo('{{$video->path}}','{{$video->title}}')" class="video-link">
 
-                                <video muted>
-                                    <source src="{{$video->path}}" type="video/mp4">
-                                </video>
-                                <div class="title">{{$video->title}}</div>
-                            </a>
-                        </div>
-                    @endforeach
+                        <video muted>
+                            <source src="{{$video->path}}" type="video/mp4">
+                        </video>
+                        <div class="title">{{$video->title}}</div>
+                    </a>
                 </div>
+            @endforeach
         </div>
-    </section>
 
+    </section>
     <script>
         function changeVideo(videoPath, videoTitle) {
             var mainVideo = document.getElementById('main-video');

@@ -5,12 +5,14 @@
 @endsection
 @section("content")
     <section class="course-upload">
-        <form action="{{route("course.update",['course'=>$course])}}" class="upload-form" method="POST"  enctype="multipart/form-data">
+        <form action="{{route("course.update",['course'=>$course])}}" class="upload-form" method="POST"
+              enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <div class="form-left">
                     <label for="author">Course Author</label>
-                    <input type="text" name="author" id="author" class="text" value="{{$course->author->email}}" placeholder="author@mail.com">
+                    <input type="text" name="author" id="author" class="text" value="{{$course->author->email}}"
+                           placeholder="author@mail.com">
                     <label for="category">Course Category</label>
                     <input type="text" class="text" name="category" value="{{$course->category}}" id="category">
                     <label for="title">Course Title</label>
@@ -20,7 +22,8 @@
                 </div>
                 <div class="form-right">
                     <label for="time">Course Time</label>
-                    <input type="text" class="text" value="{{$course->time}}" name="time" placeholder="Time in hours" id="time">
+                    <input type="text" class="text" value="{{$course->time}}" name="time" placeholder="Time in hours"
+                           id="time">
                     <div class="descriptions">
                         <div class="description">
                             <label for="description">Description</label>
@@ -52,7 +55,7 @@
 
                 @if($errors->any())
                     <div class="errors">
-                        <i class="fa-solid fa-circle-exclamation"> error</i>
+                        <i class="fa-solid fa-circle-exclamation">error</i>
 
                         <ul>
                             @foreach($errors->all() as $error)
@@ -66,18 +69,18 @@
                 <button type="submit" class="confirm-btn">Confirm</button>
                 <button type="button" onclick="confirmDelete()" class="delete-btn">Delete Course</button>
             </div>
-            <form id="deleteForm" action="{{route('course.delete')}}" method="POST" style="display: none;">
+        </form>
+            <form id="deleteForm" name="deleteForm" action="{{route('course.delete')}}" method="POST" style="display: none;">
                 @csrf
                 <input type="text" name="course" value="{{$course->id}}" hidden>
             </form>
             <script>
                 function confirmDelete() {
                     if (confirm('Are you sure you want to delete this item?')) {
-
-                        document.getElementById('deleteForm').submit();
+                        var x = document.getElementById('deleteForm');
+                        x.submit();
                     }
                 }
             </script>
-        </form>
     </section>
-    @endsection
+@endsection

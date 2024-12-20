@@ -10,7 +10,7 @@ class CoursePlayController extends Controller
 {
     public function index(Course $course)
     {
-        $videos=Video::where('course_id',$course->id)->get();
+        $videos=Video::where('course_id',$course->id)->get()->sortBy('created_at');
         return view('courseplay', ["videos"=>$videos]);
     }
 }

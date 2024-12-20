@@ -1,7 +1,7 @@
 <header>
     <div class="logo">SkillUp</div>
     <div class="search-container">
-        <form class="search-form">
+        <form class="search-form" method="GET" action="{{route("search.index")}}">
             <input type="text" class="search-input" placeholder="Search..." name="term">
             <button type="submit" class="search-button">
                 <i class="fas fa-search"></i>
@@ -24,8 +24,10 @@
                     </div>
                 </div>
             </li>
-            <li><a class="link" href="#">All Courses</a></li>
-            <li><a class="border-btn" href="{{route("logout")}}">Sign Out</a></li>
+                <li><a class="link" href="{{route('home.index')}}">All Courses</a></li>
+            @section('nav-buttons')
+                <li><a class="border-btn" href="{{route("logout")}}">Sign Out</a></li>
+            @show
         </ul>
     </nav>
 

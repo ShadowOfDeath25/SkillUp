@@ -18,7 +18,9 @@
     text-decoration: none;
     display:flex;
     flex-direction: row;
-    align-items: center;
+}
+.video-link .title{
+    margin-left: 10px;
 }
 .main-video .title {
     margin-top: 40px;
@@ -39,7 +41,6 @@
 .playlist-item {
     display: flex;
     align-items: center;
-
     margin-bottom: 30px;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out,
@@ -47,13 +48,13 @@
     padding-top 0.3s ease-in-out,
     padding-right 0.3s ease-in-out,
     padding-left 0.3s ease-in-out;
-
+    width:100%;
     border-radius: 30px;
 }
 
 .playlist-item video {
-    width: 343px;
-    height: 189px;
+    width: 300px;
+    height: 165px;
     top: 15px;
     left: 24px;
     gap: 0px;

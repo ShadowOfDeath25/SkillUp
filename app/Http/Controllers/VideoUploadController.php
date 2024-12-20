@@ -15,7 +15,7 @@ class VideoUploadController extends Controller
 {
     public function index()
     {
-        if (Auth::user() && Auth::user()->role=='admin') {
+        if (Auth::user() && Auth::user()->role==='admin') {
             return view('video_upload');
         } else {
             return back()->withErrors("You are not allowed to access this page");
@@ -38,12 +38,12 @@ class VideoUploadController extends Controller
 
         $uploadedFiles = [];
         try {
+            $time = now()->format('y-m-d_h-i-s');
             $author = User::where('email', request('author'))->first();
             $thumbnail = $request->file('thumb');
-            $tPath = $thumbnail->storeAs('thumbnails/' . $author->id . '-' . $request->title, $author->id . '-' . $request->title . '.' . $thumbnail->extension(), 'public');
+            $tPath = $thumbnail->storeAs('thumbnails/'. $author->id. '_'. $request->title.'_' .$time, $author->id . '-' . $request->title . '.' . $thumbnail->extension(), 'public');
             $tUrl = Storage::url($tPath);
             $num = 1;
-            $time = now()->format('y-m-d_h-i-s');
             $course = new Course;
             $course->title = $request->title;
             $course->category = $request->category;
@@ -57,8 +57,7 @@ class VideoUploadController extends Controller
             foreach ($request->file('videos') as $video) {
                 $extension = $video->getClientOriginalExtension();
                 $customFilename = $author->name . "_" . $course->title . '_' . $time . "_" . $num . "." . $extension;
-                $customPath = "videos/";
-                $path = $video->storeAs('videos/' . $author->id . '_' . $request->title,
+                $path = $video->storeAs('videos/' .$author->id. '_'. $request->title,
                     $author->id . '_' . $request->title . '_' . $time . '_' . $num . '.' . $extension,
                     'public');
                 $url = Storage::url($path);

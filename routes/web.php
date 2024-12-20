@@ -19,6 +19,7 @@ Route::get('/courseplay',function(){
 Route::get('/test',function(){
     return view('testing/test');
 });
+Route::get("/home/search",[HomeController::class ,'search'])->name("search.index");
 Route::get("/course/{course}",[CoursePlayController::class,'index'])->name("courseplay.index");
 Route::get("/signup",[RegisterController::class,'index'])->name("register-page");
 Route::post("/delete",[EditCourseController::class,'delete'])->name("course.delete");

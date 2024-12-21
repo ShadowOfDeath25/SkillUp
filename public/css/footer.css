@@ -3,21 +3,32 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 200px;
+    padding: 20px 20px;
     border-top: solid white 1.5px;
+    margin-top: 20px;
 }
 
 footer p {
+    margin:0;
+    align-items: center;
     color: #b7b6b6;
     font-size: 20px;
     font-weight: bold;
 }
 
 footer .links a {
+    display:flex;
+    align-items: center;
+    text-decoration: none;
     font-size: 24px;
+    color:#B83939;
+    transition: color 0.3s ease-in-out;
+}
+footer .links a:hover{
+    color:#8b0000;
 }
 
 footer p span {
-    color: #930914;
+    color: #B83939;
 
 }

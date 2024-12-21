@@ -13,6 +13,7 @@
         <link
             href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
             rel="stylesheet">
+        <link rel="stylesheet" href="{{asset("css/footer.css")}}">
         <link rel="stylesheet" href="{{asset("css/master.css")}}">
         <link rel="stylesheet" href="{{asset("css/navbar.css")}}">
         @section('styles')
@@ -20,8 +21,10 @@
     </head>
     <body>
         @include("layouts.components._navbar_main")
+        <div class="content">
         @section('content')
         @show
+        </div>
         @include("layouts.components._footer")
     </body>
 </html>

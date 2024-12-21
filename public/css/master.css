@@ -8,8 +8,5 @@ body {
 
 .content {
     flex: 1;
-    height: 90vh;
-}
-.footer{
-    height:10vh;
+    height: 100%;
 }

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\User_Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -19,5 +21,11 @@ class HomeController extends Controller
         $courses = Course::where('title', 'LIKE', '%' . $search . '%')->get();
         return view('testing/home', ["courses" => $courses]);
 
+    }
+
+    public function category($category)
+    {
+        $courses = Course::where('category', $category)->get();
+        return view('testing/home', ["courses" => $courses]);
     }
 }

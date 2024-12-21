@@ -38,8 +38,7 @@ class EditCourseController extends Controller
                 $videos->each->delete();
                 $course->delete();
                 return redirect()->route('home.index')->with('success', 'Course deleted');
-            }
-            catch (\Exception $e) {
+            } catch (\Exception $e) {
                 return back()->withErrors($e->getMessage());
             }
         } else {
@@ -63,17 +62,15 @@ class EditCourseController extends Controller
                 'thumb' => 'image|mimes:jpeg,png,jpg,svg|max:20480'
             ]);
             try {
-
-                $author = User::where('email',$request->author)->get();
+                $author = User::where('email', $request->author)->get();
                 $time = now()->format('y-m-d_h-i-s');
-                $oldVideosDir= substr(dirname($course->thumbnail),1);
                 $course->author_id = $author->id;
                 $course->title = $request->title;
                 $course->category = $request->category;
                 $course->price = $request->price;
                 $course->time = $request->time;
                 if ($request->hasFile('thumb')) {
-                    File::deleteDirectory(substr(dirname($course->thumbnail),1));
+                    File::deleteDirectory(substr(dirname($course->thumbnail), 1));
                     $thumbnail = $request->file('thumb');
                     $path = $thumbnail->storeAs('thumbnails/' . $author->id . '_' . $request->title, $author->id . '-' . $request->title . '.' . $thumbnail->extension(), 'public');
                     $url = Storage::url($path);
@@ -97,14 +94,13 @@ class EditCourseController extends Controller
                 }
                 $course->save();
                 return redirect()->route('home.index')->with('success', 'Course updated successfully');
-            }catch (\Exception $e) {
+            } catch (\Exception $e) {
                 return back()->withErrors($e->getMessage());
             }
 
         } else {
             return back()->withErrors("You are not allowed to access this page");
         }
-
 
 
     }

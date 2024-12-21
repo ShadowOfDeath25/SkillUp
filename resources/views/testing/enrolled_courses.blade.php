@@ -6,7 +6,4 @@
     @foreach($courses as $course)
         <a href="{{route("courseplay.index",['course'=>$course])}}">{{$course->title}}</a>
     @endforeach
-
-
-
 @endsection

@@ -1,4 +1,4 @@
-@if(Auth::check()&& Auth::user()->role=="admin")
+@if(Auth::check()&& Auth::user()->role==="admin")
     @include("layouts.components._navbar_admin")
 @elseif(Auth::check())
     @include("layouts.components._navbar")

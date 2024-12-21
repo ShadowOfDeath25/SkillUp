@@ -45,42 +45,24 @@
                     </div>
                 </div>
             </div>
-
-            <div class="errors">
-                @if(session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                @endif
-
-                @if($errors->any())
-                    <div class="errors">
-                        <i class="fa-solid fa-circle-exclamation">error</i>
-
-                        <ul>
-                            @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-            </div>
+            @include("layouts.components._errors")
             <div class="confirm">
                 <button type="submit" class="confirm-btn">Confirm</button>
                 <button type="button" onclick="confirmDelete()" class="delete-btn">Delete Course</button>
             </div>
         </form>
-            <form id="deleteForm" name="deleteForm" action="{{route('course.delete')}}" method="POST" style="display: none;">
-                @csrf
-                <input type="text" name="course" value="{{$course->id}}" hidden>
-            </form>
-            <script>
-                function confirmDelete() {
-                    if (confirm('Are you sure you want to delete this item?')) {
-                        var x = document.getElementById('deleteForm');
-                        x.submit();
-                    }
+        <form id="deleteForm" name="deleteForm" action="{{route('course.delete')}}" method="POST"
+              style="display: none;">
+            @csrf
+            <input type="text" name="course" value="{{$course->id}}" hidden>
+        </form>
+        <script>
+            function confirmDelete() {
+                if (confirm('Are you sure you want to delete this course?')) {
+                    var x = document.getElementById('deleteForm');
+                    x.submit();
                 }
-            </script>
+            }
+        </script>
     </section>
 @endsection

@@ -1,0 +1,139 @@
+
+
+/* Start Glopal Rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+body {
+    font-family: "Cairo", sans-serif;
+}
+
+.container {
+    padding-inline: 15px;
+    margin-inline: auto;
+}
+
+/* Small Screens */
+
+@media (min-width:768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+/* Midium Screens */
+
+@media (min-width:992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* Large Screens */
+
+@media (min-width:1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/* End Glopal Rules */
+
+
+.page {
+    background-color: #121212;
+    height: 100vh;
+    /* position: relative; */
+    color: white;
+}
+
+.page .container h1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 110px;
+    margin-bottom: 50px;
+    font-weight: normal;
+}
+
+.page .container form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #191919;
+    padding: 50px 50px 0;
+    border: 1px solid #7A7A7A;
+    border-radius: 30px;
+    max-width: 100%;
+}
+
+.page .container form label {
+    display: block;
+    font-size: 12px;
+}
+
+.page .container form input {
+    margin-block: 5px 15px;
+    background-color: #E3E3E3;
+    padding: 12px 10px;
+    border-radius: 13px;
+    width: 330px;
+    max-width: 100%;
+    outline: none;
+    border: none;
+}
+
+.page .container form input:focus {
+    caret-color: #191919;
+}
+
+.page .container form input:focus::placeholder {
+    color: transparent;
+}
+
+.page .container form .sign-up {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page .container form .sign-up p {
+    font-size: 12px;
+}
+
+.page .container form .sign-up a {
+    color: #1100FF;
+    transition: 0.3s;
+}
+
+.page .container form .sign-up a:hover {
+    color: #862424;
+}
+
+.page .container form>a {
+    display: block;
+    width: fit-content;
+    margin-inline: auto;
+    margin-block: 35px 15px;
+    color: #862424;
+    background-color: transparent;
+    padding: 10px 60px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 8px;
+    border: 2px solid #862424;
+    transition: 0.3s;
+    /* font-weight: bold; */
+    /* box-shadow: 1px 1px 1px #862424; */
+}
+
+.page .container form>a:hover {
+    background-color: #862424;
+    color: #E3E3E3;
+}
+

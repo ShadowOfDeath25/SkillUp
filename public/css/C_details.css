@@ -1,0 +1,136 @@
+
+/* Start Glopal Rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Cairo", sans-serif;
+    background-color: #121212;
+}
+
+.container {
+    padding-inline: 15px;
+    margin-inline: auto;
+}
+
+/* Small Screens */
+
+@media (min-width:768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+/* Midium Screens */
+
+@media (min-width:992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* Large Screens */
+
+@media (min-width:1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/* End Glopal Rules */
+
+.page {
+    height: 100vh;
+    color: #ECECEC;
+}
+
+.page .top {
+    display: flex;
+}
+
+.page .bottom {
+    margin-inline: 15px 25px;
+    margin-top: 15px;
+}
+
+.page .top img {
+    width: 700px;
+    max-width: 100%;
+    margin-inline: 15px 25px;
+    margin-top: 15px;
+    border-radius: 25px;
+}
+
+.page .top .text h2 {
+    font-weight: normal;
+    font-size: 36px;
+}
+
+.page .top .text p {
+    margin: 40px auto;
+    line-height: 1.6;
+    padding: 10px;
+    font-size: 17px;
+}
+
+.page .top .text .info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px;
+}
+
+.page .top .text .info .price{
+    display: flex;
+    align-items: center;
+}
+
+.page .top .text .info .price span:first-of-type{
+    font-size: 60px;
+    margin-right: 5px;
+}
+
+.page .top .text .info .price span:last-of-type{
+    font-size: 60px;
+}
+
+.page .top .text .info .hours {
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.page .top .text .info .hours i{
+    font-size: 40px;
+    font-weight: normal;
+    margin-right: 5px;
+    margin-top: 2px;
+}
+
+.page .top .text .info .hours span{
+    font-size: 48px;
+}
+
+.page .top .text a{
+        display: block;
+        width: 90%;
+        margin-inline: auto;
+        margin-block: 35px 15px;
+        color: #E3E3E3;
+        background-color: #862424;
+        padding: 12px 60px;
+        text-decoration: none;
+        font-size: 22px;
+        border-radius: 12px;
+        border: 2px solid #862424;
+        transition: 0.3s;
+        text-align: center;
+}
+
+.page .top .text a:hover {
+    background-color: transparent;
+    color: #862424;
+}

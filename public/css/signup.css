@@ -1,5 +1,5 @@
 .welcome h2 {
-    margin-top: 14vh;
+    margin-top: 11vh;
     margin-bottom: 20px;
     font-size: 48px;
     font-weight: 400;
@@ -113,8 +113,10 @@ p {
 }
 
 .signup-form label {
-    display: block;
+    display: inline-flex;
+    justify-content: left;
     margin-bottom: 5px;
+    padding-left: 5px;
     font-size: 14px;
     color: #E3E3E3;
 }

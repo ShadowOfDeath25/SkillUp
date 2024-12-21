@@ -11,8 +11,6 @@
             </video>
             <div class="title" id="main-title">{{$videos[0]->title}}</div>
         </div>
-
-
         <div class="playlist">
             @foreach($videos as $video)
                 <div class="playlist-item">
@@ -26,7 +24,6 @@
                 </div>
             @endforeach
         </div>
-
     </section>
     <script>
         function changeVideo(videoPath, videoTitle) {

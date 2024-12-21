@@ -208,6 +208,19 @@ li {
     text-align: left;
     animation: slideIn 0.7s ease-in-out;
 }
+.success{
+    display: flex;
+    max-height:30vh;
+    column-gap: 40px;
+    flex-direction: column;
+    background-color: #208c03;
+    border-radius: 30px;
+    width:100%;
+    overflow:scroll;
+    scrollbar-width: none;
+    text-align: left;
+    animation: slideIn 0.7s ease-in-out;
+}
 .fa-solid {
     margin-top: 20px;
     margin-left: 20px;

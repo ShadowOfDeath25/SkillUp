@@ -1,7 +1,12 @@
-<div class="errors">
+<div class="error">
     @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
+        <div class="success">
+            <i class="fa-solid fa-circle-check"> Success</i>
+            <ul>
+                <li>
+                    {{ session('success') }}
+                </li>
+            </ul>
         </div>
     @endif
     @if($errors->any())

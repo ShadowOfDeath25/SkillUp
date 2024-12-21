@@ -30,9 +30,7 @@ class RegisterController extends Controller
        $newUser->gender=request()->input('gender');
        $newUser->save();
 
-
-
-       return "User Registered Successfully";
+       return back()->with("success","Registration Successful");
 
     }
 

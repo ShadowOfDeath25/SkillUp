@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CourseDetailsController;
 use App\Http\Controllers\CoursePlayController;
 use App\Http\Controllers\EditCourseController;
 use App\Http\Controllers\EnrollmentController;
@@ -20,10 +21,11 @@ Route::get('/courseplay',function(){
 Route::get('/test',function(){
     return view('testing/test');
 });
-Route::get('/enrolled-courses', [EnrollmentController::class, 'enroll'])->name('enrolled.index');
+Route::get("/course-details/{course}",[CourseDetailsController::class,'index'])->name('course-details.index');
+Route::get('/enrolled-courses', [EnrollmentController::class, 'index'])->name('enrolled.index');
 Route::get("/home/search",[HomeController::class ,'search'])->name("search.index");
 Route::get("/home/{category}",[HomeController::class ,'category'])->name("home.category");
-Route::get("/course/{course}",[CoursePlayController::class,'index'])->name("courseplay.index");
+Route::get("/course-player/{course}",[CoursePlayController::class,'index'])->name("courseplay.index");
 Route::get("/signup",[RegisterController::class,'index'])->name("register-page");
 Route::post("/delete",[EditCourseController::class,'delete'])->name("course.delete");
 Route::post("/update/{course}",[EditCourseController::class,'update'])->name("course.update");

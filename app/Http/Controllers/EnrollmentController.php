@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class EnrollmentController extends Controller
 {
-    public function enroll()
+    public function index()
     {
         $userId = Auth::user()->id;
         $enrollments = User_Course::where('user_id', $userId)->get();
@@ -18,7 +18,10 @@ class EnrollmentController extends Controller
         foreach ($enrollments as $enrollment) {
             $courses[] = $enrollment->course;
         }
-
         return view('testing/enrolled_courses', ["courses" => $courses]);
+    }
+
+    public function enroll(){
+        //TBD
     }
 }

@@ -34,7 +34,9 @@ class EditCourseController extends Controller
                 File::deleteDirectory($dir);
                 File::deleteDirectory(substr(dirname($course->thumbnail), 1));
                 $enrolled = User_Course::where('course_id', $course->id)->get();
-                $enrolled->each->delete();
+                if ($enrolled->isNotEmpty()) {
+                    $enrolled->each->delete();
+                }
                 $videos->each->delete();
                 $course->delete();
                 return redirect()->route('home.index')->with('success', 'Course deleted');
@@ -62,7 +64,7 @@ class EditCourseController extends Controller
                 'thumb' => 'image|mimes:jpeg,png,jpg,svg|max:20480'
             ]);
             try {
-                $author = User::where('email', $request->author)->get();
+                $author = User::where('email', $request->author)->get()->first();
                 $time = now()->format('y-m-d_h-i-s');
                 $course->author_id = $author->id;
                 $course->title = $request->title;

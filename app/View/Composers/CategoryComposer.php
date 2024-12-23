@@ -12,13 +12,11 @@ class CategoryComposer
 {
     public function compose(View $view)
     {
-        $categories = Cache::remember('distinct_categories', 60*24, function() {
-            return Course::select('category')
+        $categories = Course::select('category')
                 ->distinct()
                 ->get()
                 ->pluck('category')
                 ->toArray();
-        });
         $categories = collect($categories);
         $view->with('categories', $categories);
     }

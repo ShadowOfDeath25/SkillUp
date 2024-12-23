@@ -36,7 +36,7 @@ class RegisterController extends Controller
        $newUser->save();
        Auth::attempt(['email' => request('email'), 'password' => request('password')]);
        session()->regenerate();
-       return redirect('home')->with("success", "Registration Successful");
+       return redirect()->route("home.index")->with("success", "Registration Successful");
         }catch (\Exception $exception){
             return back()->withErrors(["error" => "Registration Failed".$exception->getMessage()]);
 

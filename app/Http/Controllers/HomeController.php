@@ -27,5 +27,8 @@ class HomeController extends Controller
         $courses = Course::where('category', $category)->get();
         return view('home', ["courses" => $courses]);
     }
-
+    
+    public function test(){
+        return view('test');
+    }
 }

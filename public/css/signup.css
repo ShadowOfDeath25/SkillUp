@@ -4,8 +4,6 @@
     font-size: 48px;
     font-weight: 400;
     line-height: 58.09px;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
     text-align: center;
 
 }
@@ -56,9 +54,6 @@ label {
 
 }
 
-.gender {
-    margin: 10px 0;
-}
 
 .gender-options label {
     margin-right: 15px;
@@ -66,9 +61,6 @@ label {
     align-items: center;
 }
 
-.gender input[type="radio"] {
-    margin-right: 5px;
-}
 
 p {
     font-size: 14px;
@@ -141,17 +133,6 @@ p {
     gap: 8px;
 }
 
-.gender-label {
-    font-weight: bold;
-    font-size: 16px;
-    width: 45px;
-    height: 20px;
-    top: 402px;
-    left: 911px;
-    gap: 0px;
-    opacity: 0px;
-
-}
 
 .gender .gender-options {
     display: flex;
@@ -188,18 +169,9 @@ p {
     justify-content: space-between;
 }
 
-.already-registered span {
-    color: #E3E3E3;
-}
 
-.already-registered a {
-    color: #0015FF;
-    text-decoration: none;
-}
 
-.already-registered a:hover {
-    text-decoration: underline;
-}
+
 
 .signup-btn {
     background: #DA2B2B8F;

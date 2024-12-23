@@ -7,10 +7,13 @@
 .main-video {
     flex: 2;
     padding: 20px;
+    max-height: 400px;
 }
 
 .main-video video {
     width: 100%;
+
+    object-fit: cover;
     border-radius: 30px;
     border: 1px solid white
 }

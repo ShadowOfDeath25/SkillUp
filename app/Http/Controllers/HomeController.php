@@ -20,7 +20,6 @@ class HomeController extends Controller
         $search = request('term');
         $courses = Course::where('title', 'LIKE', '%' . $search . '%')->get();
         return view('home', ["courses" => $courses]);
-
     }
 
     public function category($category)

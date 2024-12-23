@@ -25,7 +25,7 @@ class EditCourseController extends Controller
 
     public function delete()
     {
-        if (Auth::user() && Auth::user()->role === 'admin') {
+        if (Auth::check() && Auth::user()->role === 'admin') {
             try {
                 $course = Course::find(request()->course);
                 $videos = Video::where('course_id', $course->id)->get();

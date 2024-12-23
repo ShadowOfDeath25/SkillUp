@@ -15,7 +15,6 @@
             @foreach($videos as $video)
                 <div class="playlist-item">
                     <a onclick="changeVideo('{{$video->path}}','{{$video->title}}')" class="video-link">
-
                         <video muted>
                             <source src="{{$video->path}}" type="video/mp4">
                         </video>

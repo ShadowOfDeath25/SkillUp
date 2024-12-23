@@ -2,7 +2,6 @@
     <div class="logo">SkillUp</div>
     <div class="search-container">
         <form class="search-form" method="GET" action="{{route("search.index")}}">
-            @csrf
             <input type="text" class="search-input" placeholder="Search..." name="term">
             <button type="submit" class="search-button">
                 <i class="fas fa-search"></i>

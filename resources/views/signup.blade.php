@@ -1,14 +1,13 @@
 @extends('layouts.master')
 @section('title','Sign Up')
 @section('styles')
-<link rel="stylesheet" href="{{asset("css/signup.css")}}">
+    <link rel="stylesheet" href="{{asset("css/signup.css")}}">
 @endsection
 @section('content')
-
-    <div class="welcome">
-        <h2>Welcome to SkillUp</h2>
-    </div>
-    <main>
+    <div class="main">
+        <div class="welcome">
+            <h2>Welcome to SkillUp</h2>
+        </div>
         <div class="signup-container">
             <form class="signup-form" action="{{route("register-user")}}" method="POST">
                 @csrf
@@ -41,5 +40,5 @@
                 <button type="submit" class="signup-btn">Sign Up</button>
             </form>
         </div>
-    </main>
+    </div>
 @endsection

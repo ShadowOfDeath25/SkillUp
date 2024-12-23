@@ -15,7 +15,7 @@ class VideoUploadController extends Controller
 {
     public function index()
     {
-        if (Auth::user() && Auth::user()->role==='admin') {
+        if (Auth::check() && Auth::user()->role === 'admin') {
             return view('video_upload');
         } else {
             return back()->withErrors("You are not allowed to access this page");
@@ -41,7 +41,7 @@ class VideoUploadController extends Controller
             $time = now()->format('y-m-d_h-i-s');
             $author = User::where('email', request('author'))->first();
             $thumbnail = $request->file('thumb');
-            $tPath = $thumbnail->storeAs('thumbnails/'. $author->id. '_'. $request->title.'_' .$time, $author->id . '-' . $request->title . '.' . $thumbnail->extension(), 'public');
+            $tPath = $thumbnail->storeAs('thumbnails/' . $author->id . '_' . $request->title . '_' . $time, $author->id . '-' . $request->title . '.' . $thumbnail->extension(), 'public');
             $tUrl = Storage::url($tPath);
             $num = 1;
             $course = new Course;
@@ -57,12 +57,12 @@ class VideoUploadController extends Controller
             foreach ($request->file('videos') as $video) {
                 $extension = $video->getClientOriginalExtension();
                 $customFilename = $author->name . "_" . $course->title . '_' . $time . "_" . $num . "." . $extension;
-                $path = $video->storeAs('videos/' .$author->id. '_'. $request->title,
+                $path = $video->storeAs('videos/' . $author->id . '_' . $request->title,
                     $author->id . '_' . $request->title . '_' . $time . '_' . $num . '.' . $extension,
                     'public');
                 $url = Storage::url($path);
                 $newVideo = new video;
-                $newVideo->title = $course->title.' '.$num;
+                $newVideo->title = $course->title . ' ' . $num;
                 $newVideo->path = $url;
                 $newVideo->course_id = $course->id;
                 $newVideo->save();

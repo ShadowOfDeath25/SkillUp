@@ -1,39 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkillUp</title>
-    <!-- Font Awesome Library -->
-    <link rel="stylesheet" href="CSS/all.min.css">
-    <!-- Render All Elements Normally -->
-    <link rel="stylesheet" href="CSS/normalize.css">
-    <!-- Main Template Css File -->
-    <link rel="stylesheet" href="CSS/login.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
-</head>
-
-<body>
+@extends("layouts.master")
+@section('title','Sign In')
+@section('styles')
+    <link rel="stylesheet" href="{{asset("css/login.css")}}"
+@endsection
+@section('content')
     <div class="page">
         <div class="container">
             <h1>Welcome to SkillUp</h1>
-            <form action="">
+            <form action="{{route("login-user")}}" method="POST">
+                @csrf
                 <label for="email">Email</label>
-                <input id="email" type="email" placeholder="Enter Your E-mail" required>
+                <input id="email" name="email" type="email" value="{{old("email")}}" placeholder="Enter Your E-mail" required>
                 <label for="pass">Password</label>
-                <input id="pass" type="password" placeholder="Enter Your Password" required>
+                <input id="pass" name="password" type="password" placeholder="Enter Your Password" required>
                 <div class="sign-up">
                     <p>New Here?</p>
-                    <a href="">Sign Up</a>
+                    <a href="{{route("signup")}}">Sign Up</a>
                 </div>
-                <a href="">Sign in</a>
+                @include("layouts.components._errors")
+                <button type="submit">Sign In</button>
             </form>
         </div>
     </div>
-</body>
+@endsection
 
-</html>

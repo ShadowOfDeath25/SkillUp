@@ -13,13 +13,12 @@ class RegisterController extends Controller
         return view("signup");
     }
     public function register(){
-
            request()->validate([
                'email' => 'required|email|unique:users,email',
                'password' => 'required|min:8',
                'name'=>'required',
                'gender'=>'required',
-               'phone'=>'required|unique:users,phone',
+               'phone'=>'required|unique:users,phone|max:11',
                'confirm-password'=>'required|same:password'
            ]);
        $newUser = new User;
@@ -29,10 +28,6 @@ class RegisterController extends Controller
        $newUser->phone=request('phone');
        $newUser->gender=request()->input('gender');
        $newUser->save();
-
        return back()->with("success","Registration Successful");
-
     }
-
-
 }

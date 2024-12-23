@@ -21,6 +21,7 @@ Route::get('/courseplay',function(){
 Route::get('/test',function(){
     return view('testing/test');
 });
+Route::get("/enroll/{course}",[EnrollmentController::class,'enroll'])->name("enrollment.create");
 Route::get("/course-details/{course}",[CourseDetailsController::class,'index'])->name('course-details.index');
 Route::get('/enrolled-courses', [EnrollmentController::class, 'index'])->name('enrolled.index');
 Route::get("/home/search",[HomeController::class ,'search'])->name("search.index");

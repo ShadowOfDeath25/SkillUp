@@ -28,6 +28,5 @@
             @show
         </div>
         @include("layouts.components._footer")
-
     </body>
 </html>

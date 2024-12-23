@@ -6,7 +6,6 @@
 @section('content')
     @include('layouts.components._errors')
     <div class="container">
-
         @foreach($courses as $course)
             <div  class="photo-link">
                 <div class="image-container">

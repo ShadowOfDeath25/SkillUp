@@ -5,9 +5,8 @@
     <link rel="stylesheet" href="{{asset("css/home.css")}}">
 @endsection
 @section('content')
-
+    @include('layouts.components._errors')
     <div class="container">
-        @include('layouts.components._errors')
         @foreach($courses as $course)
             <div class="photo-link">
                 <div class="image-container">

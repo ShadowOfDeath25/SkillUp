@@ -25,8 +25,8 @@ class RegisterController extends Controller
             'phone' => 'required|unique:users,phone|max:11',
             'confirm-password' => 'required|same:password'
         ]);
-        try {
 
+        try {
        $newUser = new User;
        $newUser->email = request('email');
        $newUser->password = Hash::make(request('password'));
@@ -39,7 +39,6 @@ class RegisterController extends Controller
        return redirect()->route("home.index")->with("success", "Registration Successful");
         }catch (\Exception $exception){
             return back()->withErrors(["error" => "Registration Failed".$exception->getMessage()]);
-
 
         }
     }

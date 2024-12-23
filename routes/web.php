@@ -10,12 +10,10 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CourseUploadController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/test',[HomeController::class,'test'])->name('test');
 
 
 
-Route::get('/test',function(){
-    return view('testing/test');
-});
 Route::get("/enroll/{course}",[EnrollmentController::class,'enroll'])->name("enrollment.create");
 Route::get("/course-details/{course}",[CourseDetailsController::class,'index'])->name('course-details.index');
 Route::get('/enrolled-courses', [EnrollmentController::class, 'index'])->name('enrolled.index');

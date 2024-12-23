@@ -6,7 +6,6 @@
 @section('content')
     @include('layouts.components._errors')
     <div class="page">
-
         <div class="top">
             <div class="photo">
                 <img src="{{$course->thumbnail}}" alt="web">

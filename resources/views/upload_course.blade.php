@@ -5,7 +5,7 @@
 @endsection
 @section('content')
     <section class="course-upload">
-        <form action="{{route("upload")}}" class="upload-form" method="POST" enctype="multipart/form-data">
+        <form action="{{route("course-uploader.upload")}}" class="upload-form" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <div class="form-left">
@@ -42,26 +42,7 @@
                     </div>
                 </div>
             </div>
-
-            <div class="errors">
-                @if(session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                @endif
-
-                @if($errors->any())
-                    <div class="errors">
-                        <i class="fa-solid fa-circle-exclamation"> error</i>
-
-                        <ul>
-                            @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-            </div>
+            @include("layouts.components._errors")
             <div class="confirm">
                 <button type="submit" class="confirm-btn">Confirm</button>
             </div>

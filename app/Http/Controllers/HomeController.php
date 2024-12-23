@@ -12,20 +12,20 @@ class HomeController extends Controller
     public function index()
     {
         $courses = Course::all();
-        return view('testing/home', ["courses" => $courses]);
+        return view('home', ["courses" => $courses]);
     }
 
     public function search()
     {
         $search = request()->term;
         $courses = Course::where('title', 'LIKE', '%' . $search . '%')->get();
-        return view('testing/home', ["courses" => $courses]);
+        return view('home', ["courses" => $courses]);
 
     }
 
     public function category($category)
     {
         $courses = Course::where('category', $category)->get();
-        return view('testing/home', ["courses" => $courses]);
+        return view('home', ["courses" => $courses]);
     }
 }

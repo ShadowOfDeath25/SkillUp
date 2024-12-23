@@ -4,15 +4,16 @@
     <link rel="stylesheet" href="{{asset('css/C_details.css')}}">
 @endsection
 @section('content')
-
+    @include('layouts.components._errors')
     <div class="page">
+
         <div class="top">
             <div class="photo">
                 <img src="{{$course->thumbnail}}" alt="web">
             </div>
             <div class="text">
                 <h2>{{$course->title." - ".$course->author->name}}</h2>
-                <p>{{$course->description}}</p>
+                <p>{!! nl2br($course->brief) !!}</p>
                 <div class="info">
                     <div class="price">
                         <span>$</span>
@@ -33,7 +34,7 @@
         <div class="bottom">
             <span class="d-label">Course Description:</span>
             <div class="course-description">
-                <p>{{$course->description}}</p>
+                <p>{!!nl2br($course->description)!!}</p>
             </div>
             <script>
                 document.getElementById("enrollButton").addEventListener("click", function () {

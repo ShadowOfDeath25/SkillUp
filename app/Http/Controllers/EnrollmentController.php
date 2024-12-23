@@ -19,7 +19,7 @@ class EnrollmentController extends Controller
             foreach ($enrollments as $enrollment) {
                 $courses[] = $enrollment->course;
             }
-            return view('testing/enrolled_courses', ["courses" => $courses]);
+            return view('enrolled_courses', ["courses" => $courses]);
 
         } else {
             return back()->withErrors("Please login first");

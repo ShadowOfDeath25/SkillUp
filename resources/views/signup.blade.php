@@ -14,11 +14,11 @@
                 <div class="form-group">
                     <div class="form-column">
                         <label>Email</label>
-                        <input type="email" name="email" placeholder="Enter Your E-Mail">
+                        <input type="email" name="email" placeholder="Enter Your E-Mail" value="{{old('email')}}">
                         <label>Full Name</label>
-                        <input type="text" name="name" placeholder="Enter Your Full Name">
+                        <input type="text" name="name" placeholder="Enter Your Full Name" value="{{old('name')}}">
                         <label>Phone Number</label>
-                        <input type="tel" name="phone" placeholder="Enter Your Phone Number">
+                        <input type="tel" name="phone" placeholder="Enter Your Phone Number" value="{{old('phone')}}">
                     </div>
                     <div class="form-column">
                         <label>Password</label>

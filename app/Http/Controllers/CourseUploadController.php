@@ -11,12 +11,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use function PHPUnit\Framework\directoryExists;
 
-class VideoUploadController extends Controller
+class CourseUploadController extends Controller
 {
     public function index()
     {
         if (Auth::check() && Auth::user()->role === 'admin') {
-            return view('video_upload');
+            return view('upload_course');
         } else {
             return back()->withErrors("You are not allowed to access this page");
         }
@@ -76,16 +76,13 @@ class VideoUploadController extends Controller
                 $num++;
             }
 
-            return response()->json([
-                'message' => 'Videos uploaded successfully!',
-                'uploaded_files' => $uploadedFiles,
-            ], 201);
+            return redirect()->route('home.index')->with('success', 'Videos uploaded successfully');
 
         } catch (\Exception $e) {
-            return response()->json([
+            return back()->withErrors([
                 'message' => 'Video upload failed!',
                 'error' => $e->getMessage(),
-            ], 500);
+            ]);
         }
     }
 }

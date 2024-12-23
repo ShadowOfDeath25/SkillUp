@@ -11,7 +11,7 @@ class LoginController extends Controller
 {
     public function index()
     {
-        return view('Login');
+        return view('login');
     }
 
     public function login()
@@ -22,8 +22,8 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
-            request()->session()->regenerate();
-            return redirect()->intended("/upload-video");
+            session()->regenerate();
+            return redirect()->route('home.index');
         } else {
             return back()->withErrors([
                 'login' => 'Wrong Email or Password',
